@@ -1,5 +1,8 @@
 package data;
 
+import io.qameta.allure.Attachment;
+import lesson0402.Massengers;
+
 public class User {
     String name, lastName,email,telephone,gender;
 
@@ -11,11 +14,17 @@ public class User {
         this.gender = gender;
     }
 
+    @Override
+    @Attachment
+    public String toString(){
+        return name+" "+email+" "+telephone;
+    }
+
     public User() {
         this.name = "Nicole";
         this.lastName = "User2";
         this.email = "user2@email.com";
-        this.telephone = "0122222222";
+        this.telephone = "951452302";
         this.gender = "Female";
     }
 
@@ -38,4 +47,5 @@ public class User {
     public String getGender() {
         return gender;
     }
+
 }

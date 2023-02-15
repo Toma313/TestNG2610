@@ -1,7 +1,5 @@
 package data;
 
-import com.sun.jdi.PrimitiveValue;
-
 public enum UserEnam {
     VALIDUSER("valid", true), NOTVALIDMAIL("noemail", false),NOTTELEPHONENUMBERS("NOTEL",false);
     private String type;

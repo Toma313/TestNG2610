@@ -1,6 +1,6 @@
-package example;
-
 import config.BaseClass;
+import data.DataProviderUsers;
+import data.User;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -17,13 +17,19 @@ public class SomeTest extends BaseClass {
         System.out.println("start beforeM");
     }
     @Test(description = "first test on TestNG", groups = {"regression", "@Smoke"})
-    public void test() throws Exception {
+    public void test1() throws Exception {
         System.out.println("TEST NAME TEST1");
-        throw new Exception("ERROR");
+        // throw new Exception("ERROR");
     }
-    @Test(dependsOnMethods = {"test"} )
-    public void test1(){
+    @Test(dependsOnMethods = {"test1"}, alwaysRun = true )
+    public void test2(){
         System.out.println("TEST NAME TEST2 "+driver.getCurrentUrl());
+    }
+    @Test(dataProvider= "getUsersList",dataProviderClass = DataProviderUsers.class)
+    public void paramTest(String arg, String arg2){
+        System.out.println(arg);
+        System.out.println(arg2);
+
     }
 
 }
