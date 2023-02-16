@@ -1,6 +1,10 @@
 import config.BaseClass;
+import config.Browsers;
 import data.DataProviderUsers;
 import data.User;
+import io.qameta.allure.Issue;
+import io.qameta.allure.Link;
+import io.qameta.allure.TmsLink;
 import jdk.jfr.Name;
 import lesson0402.CourseNames;
 import lesson0402.FormPage;
@@ -10,6 +14,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 import org.testng.annotations.*;
+import utils.BrowserUtils;
 
 import javax.annotation.processing.Messager;
 import java.util.List;
@@ -34,11 +39,16 @@ public class TestFormConsult extends BaseClass {
     @Test(dataProvider = "getUsers", testName = "TestFormDataProvider"
             , description = "Parametrics test form consultation")
 
+
+    @Link(name="Link to MY",type ="mylink")
+    @Link(name="LinkName",type ="sunDay")
+    @Link(name="LinkName2",type ="sun", value ="#_packages")
+    @Issue("Q7lwrypKSc4")
+    @TmsLink("https://dnipro.ithillel.ua/")
+
         public void testform(User user) throws InterruptedException {
             FormPage formPage = new FormPage(driver);
             formPage.sentForm(user, Massengers.TELEGRAM, CourseNames.FRONTENDBASIC, true);
-        System.out.println(user);
-
         Thread.sleep(1000);
             Assert.assertTrue(formPage.isButtonConfirmEnabled());
         }

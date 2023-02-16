@@ -1,10 +1,12 @@
 import config.BaseClass;
 import data.DataProviderUsers;
 import data.User;
+import lesson0402.MyLisenerForFormConsultation;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
-
+@Listeners (MyLisenerForFormConsultation.class)
 public class SomeTest extends BaseClass {
 
     @BeforeClass
